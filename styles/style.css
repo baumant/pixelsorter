@@ -1,0 +1,106 @@
+
+*{
+  font-family: 'Open Sans', sans-serif;
+}
+html,body {
+  min-width: 100%;
+  min-height: 100%;
+  padding: 0; 
+  margin: 0;
+}
+h1{
+  font-size: 3em;
+  margin: 10px 35px;
+}
+header{
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+section{
+  background-color: white;
+  padding: 1%;
+}
+.instructions{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 3px dashed grey;
+  padding: 35px 0;
+  margin: 5%;
+  text-align: center;
+}
+#params {
+    text-align: center;
+    font-size: 25px;
+    border: none;
+    padding: 25px 10px;
+    width: 100%;
+}
+#params p{
+  display: inline-block;
+  padding: 0 35px;
+}
+.bottom{
+  background-color: rgba(255,255,255,.7);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.slick-track{
+    display: flex;
+    align-items: center;
+}
+.images{
+  width: 95%;
+  margin: 0 auto;
+}
+
+.exampleImage{
+  padding: 10px;
+}
+
+.images button{
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+}
+
+.glyphicon-chevron-left, .glyphicon-chevron-right {
+    font-size: 2em;
+}
+
+.sortedImages{
+  height: 800px;
+  margin-bottom: 100px
+}
+#upload {
+  display: flex;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.DLButton {
+  width: 190px;
+  display: block;
+  margin: 0 auto;
+  top: -43px;
+  position: relative;
+  background-color: rgba(255,255,255,.7);
+  padding: 9px;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  z-index: 1;
+}
+canvas {
+  display: block;
+  margin: 0 auto;
+  max-width: 85%;
+}
