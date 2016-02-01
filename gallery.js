@@ -1,5 +1,5 @@
 var imgCount = 1;
-var images = ["1.png", "2.jpeg", "3.jpeg", "sun.jpeg"];
+var images = ["1.png", "2.jpeg", "3.jpeg", "sun.jpeg", "mountain.jpeg"];
 
 
 for (var i = 0; i < images.length; i++) {
