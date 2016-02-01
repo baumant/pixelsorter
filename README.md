@@ -1,3 +1,6 @@
+#Pixel Sorter
+![Pixel Sorted Image 1](img/gallery/mountain.jpeg)
+
 This is a remake of [julescarbon's](https://github.com/julescarbon/sortpixels.js) port of @kimasendorf's Sort Pixels script from Processing to Javascript.</p>
 
 Original source:
