@@ -1,23 +1,31 @@
-This is a remake of <a href="https://github.com/julescarbon/sortpixels.js">julescarbon's</a> port of @kimasendorf's Sort Pixels script from Processing to Javascript.
+<p>This is a remake of <a href="https://github.com/julescarbon/sortpixels.js">julescarbon's</a> port of @kimasendorf's Sort Pixels script from Processing to Javascript.</p>
 
-original source:
-     http://kimasendorf.com/data/ASDFPixelSort.zip
+<ul>original source:
+     <li><a href="http://kimasendorf.com/data/ASDFPixelSort.zip">http://kimasendorf.com/data/ASDFPixelSort.zip</a></li>
+</ul>
 
+<ul>
 Added:
-	 Whole new layout/ look
-	 Ability to sort vertically
-	 Download images
-	 Handle large file sizes
-	 Gallery of images
+	<li>Whole new layout/ look</li>
+	<li>Ability to sort vertically
+	<li>Download images</li>
+	<li>Handle large file sizes</li>
+	<li>Gallery of images</li>
+</ul>
 
+<ul>
 Removed:
-	 iterations (no effect on the image)
+	 <li>iterations (no effect on the image)</li>
+</ul>
 
-
+<ul>
 Contribute:
-     I'd love to see your artwork! Add your image into the folder img/gallery and create a pull request to get your pixel sorted art featured on the site.
+     <li>I'd love to see your artwork! Add your image into the folder img/gallery and create a pull request to get your pixel sorted art featured on the site.</li>
+</ul>
 
+<ul>
 Updates:
-     Add ability to buy prints of pictures.
-     Add different glitch effects.
-     Add setting sliders with dat.gui?
+     <li>Add ability to buy prints of pictures.</li>
+     <li>Add different glitch effects.</li>
+     <li>Add setting sliders with dat.gui?</li>
+</ul>
