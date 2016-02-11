@@ -4,16 +4,22 @@ new Uploader("#upload", setImage);
 
 $("#mode").change(function(){
   mode = parseInt( $("#mode").val() );
-  render();
+  
+  $('#load').show('fast',function(){
+      render();
+  });
 });
 
 $("#direction").change(function(){
   direction = parseInt( $("#direction").val() );
-  render();
+  
+  $('#load').show('fast',function(){
+      render();
+  });
 });
 
 
-var img, mode = 0, direction = 0, canvasNum = 0, counter = 0, siHeight = 800;
+var img, mode = 0, direction = 0, canvasNum = 0, counter = 0, siHeight = 100;
 
 function setImage(uri){
   img = new Image();
@@ -21,8 +27,11 @@ function setImage(uri){
     // params:
     // - image object
     // - mode (0 = black, 1 = brightness, 2 = white, default = 0)
+    $('#load').show('fast',function(){
+      render();
+    });
 
-    render();
+
   };
   img.src = uri;
 
@@ -30,25 +39,27 @@ function setImage(uri){
   counter ++;
   if(counter === 1){
     $('#params').addClass('bottom');
-    $('.instructions').css('margin-bottom' , '190px');
-  }
-  
+    $('.instructions').css('margin-bottom' , '100px');
+  } 
 }
 
 function render(){
-  if (img) {
-    var sortedCanvas = sortPixels(img, direction, mode);
-    
-    $('section').last().append(sortedCanvas);
-    $('canvas:last').attr('id', canvasNum);
-    addDLButton();
-    $("body").animate({'scrollTop': $(sortedCanvas).offset().top - 40 }, 300);
-    canvasNum += 1;
-  }
+  
+    if (img) {
+      var sortedCanvas = sortPixels(img, direction, mode);
+      $('section').last().append(sortedCanvas);
+      $('canvas:last').attr('id', canvasNum);
+      addDLButton();
+      $("body").animate({'scrollTop': $(sortedCanvas).offset().top - 40 }, 300);
+      canvasNum += 1;
+      //remove loading sign
+      $('#load').css('display', 'none');    
+    }
 }
 
 //Add Download Button to Images
-var DLButton = '';
+var DLButton = '',
+    sharebtn = "";
 
 function addDLButton(){
   var canvas = document.getElementById(canvasNum);
@@ -76,10 +87,49 @@ function addDLButton(){
   var blob = dataURItoBlob(dataURL);
   var burl = (window.webkitURL || window.URL).createObjectURL(blob);
   DLButton = "<a class='DLButton' download='Image.jpeg' href="+burl+">Click to Download</a>";
-  $('#'+canvasNum).after(DLButton);
+  // trigger me onclick
+  function share(){
+
+      var img;
+      try {
+          img = canvas.toDataURL('image/jpeg', 0.9).split(',')[1];
+      } catch(e) {
+          img = canvas.toDataURL().split(',')[1];
+      }
+      var w = window.open();
+      w.document.write('Uploading to imgur.com...');
+      $.ajax({
+          url: 'https://api.imgur.com/3/upload.json',
+          type: 'POST',
+          headers: {
+              Authorization: 'Client-ID 779bedb86f3f675'
+          },
+          data: {
+              type: 'base64',
+              name: 'PixelSorterImage.jpg',
+              title: 'SortedImage',
+              description: 'Made using http://timothybauman.com/pixelsorter',
+              image: img
+          },
+          dataType: 'json'
+      }).success(function(data) {
+          var url = 'http://imgur.com/' + data.data.id + '?tags';
+          //_gaq.push(['_trackEvent', 'pixelsorter', 'share', url]);
+          w.location.href = url;
+      }).error(function() {
+          alert('Could not reach api.imgur.com. Sorry :(');
+          w.close();
+          //_gaq.push(['_trackEvent', 'neonflames', 'share', 'fail']);
+      });
+  }
+
+  sharebtn = "<a id='sharebtn"+canvasNum+"' class='DLButton'> Share </a>";
+  $('#'+canvasNum).after("<div class='picbtns'>"+DLButton+sharebtn+"</div>");
+  $('#sharebtn'+canvasNum).click(share);
+
 
   //Add extra height to compensate for added canvas image
-  siHeight += $('#'+canvasNum).height();
+  siHeight += ($('#'+canvasNum).height() + 100);
   $('.sortedImages').css('height', siHeight);
 }
 
