@@ -46,6 +46,7 @@ section{
 .bottom{
   background-color: rgba(255,255,255,.7);
   position: fixed;
+  margin-bottom: 30px;
   bottom: 0;
   left: 0;
   z-index: 2;
@@ -85,19 +86,23 @@ section{
   padding: 5px;
 }
 
+.picbtns{
+  text-align: center;
+}
+
 .DLButton {
   width: 190px;
-  display: block;
-  margin: 0 auto;
+  margin: 8px;
   top: -43px;
   position: relative;
   background-color: rgba(255,255,255,.7);
-  padding: 9px;
+  padding: 10px 30px;
   font-size: 20px;
   text-decoration: none;
   text-align: center;
   color: black;
   z-index: 1;
+  cursor: pointer;
 }
 canvas {
   display: block;
@@ -105,8 +110,32 @@ canvas {
   max-width: 85%;
 }
 
+.to-top{
+  visibility:hidden;
+  opacity: 0;
+}
+.to-top .tt-is-visible{
+  visibility: visible;
+  opacity: 1;
+}
+.to-top .tt-fadeout{
+  opacity: .5;
+}
+
 footer {
   display: flex;
   justify-content: center;
-  
+  z-index: 3;
+}
+
+#load {
+  position: fixed;
+  font-size: 45px;
+  left: 37%;
+  top: 40%;
+  color: rgb(74, 70, 147);
+  background-color: rgba(255,255,255,0.6);
+  padding: 46px;
+  border-radius: 50%;
+  display: none;
 }
