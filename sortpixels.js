@@ -108,7 +108,7 @@ function addDLButton(){
               type: 'base64',
               name: 'PixelSorterImage.jpg',
               title: 'SortedImage',
-              description: 'Made using http://timothybauman.com/pixelsorter',
+              description: 'Made using http://timothybauman.com/pixelsorter , Share your images here: https://www.reddit.com/r/glitch_art/comments/46492n/ive_seen_a_lot_of_people_asking_how_to_create/',
               image: img
           },
           dataType: 'json'
