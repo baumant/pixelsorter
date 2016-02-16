@@ -50,7 +50,7 @@ function render(){
       $('section').last().append(sortedCanvas);
       $('canvas:last').attr('id', canvasNum);
       addDLButton();
-      $("body").animate({'scrollTop': $(sortedCanvas).offset().top - 40 }, 300);
+      $("body, html").animate({'scrollTop': $(sortedCanvas).offset().top - 40 }, 300);
       canvasNum += 1;
       //remove loading sign
       $('#load').css('display', 'none');    
