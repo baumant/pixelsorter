@@ -50,7 +50,7 @@ function render(){
       $('section').last().append(sortedCanvas);
       $('canvas:last').attr('id', canvasNum);
       addDLButton();
-      $("body").animate({'scrollTop': $(sortedCanvas).offset().top - 40 }, 300);
+      $("body, html").animate({'scrollTop': $(sortedCanvas).offset().top - 40 }, 300);
       canvasNum += 1;
       //remove loading sign
       $('#load').css('display', 'none');    
@@ -108,7 +108,7 @@ function addDLButton(){
               type: 'base64',
               name: 'PixelSorterImage.jpg',
               title: 'SortedImage',
-              description: 'Made using http://timothybauman.com/pixelsorter',
+              description: 'Made using http://timothybauman.com/pixelsorter , Share your images here: https://www.reddit.com/r/glitch_art/comments/46492n/ive_seen_a_lot_of_people_asking_how_to_create/',
               image: img
           },
           dataType: 'json'
